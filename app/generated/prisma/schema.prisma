@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String    @id @default(cuid())
+  name     String?
+  email    String    @unique
+  password String // In production, make sure passwords are hashed
+  role     String // "ADMIN", "MANAGER", "EMPLOYEE"
+  cards    Card[]
+  expenses Expense[]
+}
+
+model Card {
+  id        String    @id @default(cuid())
+  limit     Float
+  last4     String
+  active    Boolean   @default(true)
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  issusedAt DateTime  @default(now())
+  Expense   Expense[]
+}
+
+model Expense {
+  id        String   @id @default(cuid())
+  amount    Float
+  vendor    String
+  category  String
+  createdAt DateTime @default(now())
+  cardId    String
+  userId    String
+  card      Card     @relation(fields: [cardId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Fund {
+  id        String   @id @default(cuid())
+  name      String
+  budget    Float
+  managerId String
+  createdAt DateTime @default(now())
+}

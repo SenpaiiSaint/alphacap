@@ -18,10 +18,10 @@ export default function Home() {
         </p>
         <div className="mt-8 flex justify-center gap-4">
           <Link
-            href="/dashboard"
+            href="/demodashboard"
             className="inline-block bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-blue-700 transition"
           >
-            View Dashboard
+            View Demo
           </Link>
           <Link
             href="/auth/sign-up"

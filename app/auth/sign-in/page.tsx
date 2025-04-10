@@ -1,12 +1,13 @@
 "use client";
+
+import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function SignUpPage() {
+export default function SignInPage() {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +18,7 @@ export default function SignUpPage() {
     const res = await signIn("google", { redirect: false });
     setLoading(false);
     if (res?.ok) router.push("/dashboard");
-    else alert("Google sign-up failed");
+    else alert("Google sign-in failed");
   }
 
   async function handleGitHubLogin() {
@@ -25,29 +26,18 @@ export default function SignUpPage() {
     const res = await signIn("github", { redirect: false });
     setLoading(false);
     if (res?.ok) router.push("/dashboard");
-    else alert("GitHub sign-up failed");
+    else alert("GitHub sign-in failed");
   }
 
-  async function handleSignUp(e: React.FormEvent) {
+  async function handleManualLogin(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
-    try {
-      // Remove the name field from the request body.
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, role: "EMPLOYEE" }),
-      });
-      if (res.ok) {
-        router.push("/auth/sign-in");
-      } else {
-        alert("Error signing up");
-      }
-    } catch (error) {
-      console.error("Sign up error:", error);
-      alert("Error signing up");
-    } finally {
-      setLoading(false);
+    const res = await signIn("credentials", { redirect: false, email, password });
+    setLoading(false);
+    if (res?.ok) {
+      router.push("/dashboard");
+    } else {
+      alert("Invalid credentials");
     }
   }
 
@@ -82,7 +72,7 @@ export default function SignUpPage() {
           transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
         />
 
-        {/* Watermark for Branding */}
+        {/* Business Context Watermark */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           initial={{ opacity: 0 }}
@@ -101,7 +91,7 @@ export default function SignUpPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            Create Your Account
+            Welcome Back
           </motion.h1>
           <motion.p
             className="mb-6 text-gray-600 text-center text-lg"
@@ -109,7 +99,15 @@ export default function SignUpPage() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            Join BlueSky Labs to experience seamless spend management and tailored project insights.
+            Sign in to access your dashboard and continue elevating your projects.
+          </motion.p>
+          <motion.p
+            className="mb-8 text-gray-500 text-center italic"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+          >
+            Empowering businesses with seamless project management.
           </motion.p>
 
           {/* OAuth Buttons */}
@@ -121,9 +119,9 @@ export default function SignUpPage() {
               className="flex items-center justify-center gap-3 w-full py-3 bg-white border border-gray-300 rounded-md shadow hover:shadow-lg transition"
               disabled={loading}
             >
-              <Image src="/logos/google.svg" alt="Google Logo" width={40} height={40} />
+              <Image src="/logos/google.svg" alt="Google Logo" width={24} height={24} />
               <span className="text-gray-700 font-medium">
-                {loading ? "Processing..." : "Sign up with Google"}
+                {loading ? "Signing In..." : "Sign in with Google"}
               </span>
             </motion.button>
             <motion.button
@@ -135,7 +133,7 @@ export default function SignUpPage() {
             >
               <Image src="/logos/github.svg" alt="GitHub Logo" width={40} height={40} />
               <span className="text-gray-700 font-medium">
-                {loading ? "Processing..." : "Sign up with GitHub"}
+                {loading ? "Signing In..." : "Sign in with GitHub"}
               </span>
             </motion.button>
           </div>
@@ -147,9 +145,9 @@ export default function SignUpPage() {
             <hr className="flex-grow border-gray-300" />
           </div>
 
-          {/* Manual Sign Up Form */}
-          <form onSubmit={handleSignUp} className="w-full flex flex-col gap-4">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          {/* Manual Login Form */}
+          <form className="w-full" onSubmit={handleManualLogin}>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
               Email
             </label>
             <input
@@ -158,12 +156,11 @@ export default function SignUpPage() {
               placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
+              className="block w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               disabled={loading}
             />
 
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
               Password
             </label>
             <input
@@ -172,8 +169,7 @@ export default function SignUpPage() {
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
+              className="block w-full px-4 py-2 mb-6 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               disabled={loading}
             />
 
@@ -181,28 +177,28 @@ export default function SignUpPage() {
               type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full py-3 bg-green-500 text-white rounded-md shadow hover:bg-green-600 transition"
+              className="w-full py-3 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition"
               disabled={loading}
             >
-              {loading ? "Creating Account..." : "Sign Up"}
+              {loading ? "Signing In..." : "Sign In with Email"}
             </motion.button>
           </form>
 
-          {/* Sign In Redirect */}
+          {/* Sign Up Option */}
           <motion.div
             className="mt-6 flex items-center text-sm text-gray-600"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
-            <span>Already have an account? </span>
-            <Link href="/auth/sign-in">
+            <span>Don't have an account?&nbsp;</span>
+            <Link href="/auth/sign-up">
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-blue-600 font-semibold ml-1"
+                className="text-blue-600 font-semibold"
               >
-                Sign In
+                Sign Up
               </motion.a>
             </Link>
           </motion.div>
@@ -213,7 +209,7 @@ export default function SignUpPage() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.5 }}
           >
-            Join us today and unlock a new era of spend management.
+            Demo login – no credentials required
           </motion.p>
         </div>
       </motion.div>

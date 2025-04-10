@@ -59,6 +59,7 @@ export default function SignUpPage() {
         transition={{ duration: 0.5 }}
         whileHover={{ scale: 1.02 }}
       >
+        {/* Decorative Animated Blobs */}
         <motion.div
           className="absolute -top-16 -left-16 w-64 h-64 bg-blue-300 rounded-full filter blur-3xl opacity-60"
           animate={{ rotate: 360 }}
@@ -79,6 +80,8 @@ export default function SignUpPage() {
           animate={{ rotate: -360 }}
           transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
         />
+
+        {/* Watermark for Branding */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           initial={{ opacity: 0 }}
@@ -208,13 +211,13 @@ export default function SignUpPage() {
           >
             <span>Already have an account? </span>
             <Link href="/auth/sign-in">
-              <motion.a
+              <motion.span
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="text-blue-600 font-semibold ml-1"
               >
                 Sign In
-              </motion.a>
+              </motion.span>
             </Link>
           </motion.div>
 

@@ -1,4 +1,4 @@
-// app/api/auth/signup/route.ts
+
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
@@ -9,7 +9,6 @@ const SALT_ROUNDS = process.env.NODE_ENV === "production" ? 12 : 10;
 export async function POST(request: Request) {
   let bodyData;
   try {
-    // Read the raw request body as text.
     const rawBody = await request.text();
     
     // If the raw body is empty, return a clear error message.
@@ -20,7 +19,7 @@ export async function POST(request: Request) {
       );
     }
     
-    // Attempt to parse the JSON.
+    // Attempting to parse the JSON.
     bodyData = JSON.parse(rawBody);
   } catch (parseError) {
     console.error("Error parsing request body:", parseError);

@@ -6,8 +6,11 @@ import { ReactNode } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "AlphaCap",
+  title: "Actua",
   description: " Spending Tool for Private Equity Firms",
+  icons: {
+    icon: '/file.ico'
+  }
 };
 
 export default function RootLayout({ children}: { children: ReactNode }) {

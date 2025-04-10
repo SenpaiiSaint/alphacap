@@ -119,7 +119,7 @@ export default function SignInPage() {
               className="flex items-center justify-center gap-3 w-full py-3 bg-white border border-gray-300 rounded-md shadow hover:shadow-lg transition"
               disabled={loading}
             >
-              <Image src="/logos/google.svg" alt="Google Logo" width={24} height={24} />
+              <Image src="/logos/google.svg" alt="Google Logo" width={40} height={40} />
               <span className="text-gray-700 font-medium">
                 {loading ? "Signing In..." : "Sign in with Google"}
               </span>

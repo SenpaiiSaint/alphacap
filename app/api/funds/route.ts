@@ -1,42 +1,64 @@
-import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/lib/auth";
-import { prisma } from "@/lib/prisma";
+import { NextResponse } from 'next/server';
+import { FundSchema } from '../../services/businessLogic';
+import { prisma } from '@/lib/prisma';
 
-export async function GET(_request: Request) {
-  const session = await getServerSession(authOptions);
-  if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  
+export async function GET() {
   try {
     const funds = await prisma.fund.findMany({
-      where: { managerId: session.user.id },
+      include: {
+        expenses: true,
+        cards: true,
+      },
     });
-    return NextResponse.json({ funds });
+
+    // Transform the data to match our schema
+    const transformedFunds = funds.map(fund => ({
+      id: fund.id,
+      name: fund.name,
+      totalCapital: Number(fund.totalCapital),
+      deployedCapital: Number(fund.deployedCapital),
+      remainingCapital: Number(fund.remainingCapital),
+      performance: Number(fund.performance),
+      status: fund.status,
+      createdAt: new Date(fund.createdAt),
+      updatedAt: new Date(fund.updatedAt),
+    }));
+
+    // Validate the data
+    const validatedFunds = transformedFunds.map(fund => FundSchema.parse(fund));
+
+    return NextResponse.json(validatedFunds);
   } catch (error) {
-    console.error("GET /api/funds error:", error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    console.error('Error fetching funds:', error);
+    return NextResponse.json(
+      { error: 'Failed to fetch funds' },
+      { status: 500 }
+    );
   }
 }
 
 export async function POST(request: Request) {
-  const session = await getServerSession(authOptions);
-  if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  
-  const body = await request.json();
-  const { name, budget } = body;
-  if (!name || !budget) return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
-  
   try {
+    const body = await request.json();
+    const validatedData = FundSchema.parse(body);
+
     const fund = await prisma.fund.create({
       data: {
-        name,
-        budget,
-        managerId: session.user.id,
+        name: validatedData.name,
+        totalCapital: validatedData.totalCapital,
+        deployedCapital: validatedData.deployedCapital,
+        remainingCapital: validatedData.remainingCapital,
+        performance: validatedData.performance,
+        status: validatedData.status,
       },
     });
-    return NextResponse.json({ fund }, { status: 201 });
+
+    return NextResponse.json(fund);
   } catch (error) {
-    console.error("POST /api/funds error:", error);
-    return NextResponse.json({ error: "Failed to create fund" }, { status: 500 });
+    console.error('Error creating fund:', error);
+    return NextResponse.json(
+      { error: 'Failed to create fund' },
+      { status: 500 }
+    );
   }
-}
+} 

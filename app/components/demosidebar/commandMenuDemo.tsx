@@ -1,6 +1,6 @@
 import { Command } from "cmdk";
 import { useState, useEffect, SetStateAction, Dispatch } from "react";
-// import { FiPlusSquare, FiEye, FiPhone, FiLogOut } from "react-icons/fi";
+import { FiPlusSquare, FiEye, FiPhone, FiLogOut } from "react-icons/fi";
 
 export const CommandMenuDemo = ({
   open,

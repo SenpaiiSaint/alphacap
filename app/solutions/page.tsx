@@ -8,18 +8,15 @@ import Link from "next/link";
 const solutions = [
   {
     title: "Emerging Managers",
-    description: "Streamline operations and scale efficiently with our entry-level solution.",
+    description:
+      "Streamline operations and scale efficiently with our entry-level solution.",
     features: [
       "Fund-level spend management",
       "Basic compliance monitoring",
       "Standard reporting",
-      "Core integrations"
+      "Core integrations",
     ],
-    metrics: [
-      "Up to $500M AUM",
-      "1-3 funds",
-      "5-10 portfolio companies"
-    ]
+    metrics: ["Up to $500M AUM", "1-3 funds", "5-10 portfolio companies"],
   },
   {
     title: "Mid-Market Firms",
@@ -28,13 +25,9 @@ const solutions = [
       "Multi-fund management",
       "Advanced analytics",
       "Custom workflows",
-      "API access"
+      "API access",
     ],
-    metrics: [
-      "$500M - $5B AUM",
-      "3-10 funds",
-      "10-30 portfolio companies"
-    ]
+    metrics: ["$500M - $5B AUM", "3-10 funds", "10-30 portfolio companies"],
   },
   {
     title: "Large Investment Firms",
@@ -43,14 +36,10 @@ const solutions = [
       "Global operations support",
       "Custom integrations",
       "Dedicated support",
-      "Advanced security"
+      "Advanced security",
     ],
-    metrics: [
-      "$5B+ AUM",
-      "10+ funds",
-      "30+ portfolio companies"
-    ]
-  }
+    metrics: ["$5B+ AUM", "10+ funds", "30+ portfolio companies"],
+  },
 ];
 
 export default function SolutionsPage() {
@@ -63,7 +52,9 @@ export default function SolutionsPage() {
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
                 <Link href="/" className="flex items-center space-x-2">
-                  <span className="text-xl font-bold text-slate-900">AlphaCap</span>
+                  <span className="text-xl font-bold text-slate-900">
+                    AlphaCap
+                  </span>
                 </Link>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -115,7 +106,8 @@ export default function SolutionsPage() {
             Solutions for Every Stage
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Tailored solutions for private equity firms of all sizes, from emerging managers to global investment firms.
+            Tailored solutions for private equity firms of all sizes, from
+            emerging managers to global investment firms.
           </p>
         </motion.div>
 
@@ -134,13 +126,18 @@ export default function SolutionsPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-600 mb-6">{solution.description}</p>
-                  
+
                   <div className="space-y-6">
                     <div>
-                      <h3 className="font-semibold text-slate-900 mb-3">Key Features</h3>
+                      <h3 className="font-semibold text-slate-900 mb-3">
+                        Key Features
+                      </h3>
                       <ul className="space-y-2">
                         {solution.features.map((feature) => (
-                          <li key={feature} className="flex items-center text-slate-600">
+                          <li
+                            key={feature}
+                            className="flex items-center text-slate-600"
+                          >
                             <span className="mr-2">•</span>
                             {feature}
                           </li>
@@ -149,10 +146,15 @@ export default function SolutionsPage() {
                     </div>
 
                     <div>
-                      <h3 className="font-semibold text-slate-900 mb-3">Target Metrics</h3>
+                      <h3 className="font-semibold text-slate-900 mb-3">
+                        Target Metrics
+                      </h3>
                       <ul className="space-y-2">
                         {solution.metrics.map((metric) => (
-                          <li key={metric} className="flex items-center text-slate-600">
+                          <li
+                            key={metric}
+                            className="flex items-center text-slate-600"
+                          >
                             <span className="mr-2">•</span>
                             {metric}
                           </li>
@@ -181,11 +183,12 @@ export default function SolutionsPage() {
             Ready to Transform Your Operations?
           </h2>
           <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-            Schedule a demo to see how our solutions can help streamline your private equity operations.
+            Schedule a demo to see how our solutions can help streamline your
+            private equity operations.
           </p>
           <Button size="lg">Schedule a Demo</Button>
         </motion.div>
       </div>
     </div>
   );
-} 
+}

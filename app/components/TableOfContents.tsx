@@ -48,7 +48,9 @@ export default function TableOfContents({ sections }: TableOfContentsProps) {
       className="sticky top-24 hidden lg:block w-64 h-[calc(100vh-6rem)] overflow-y-auto"
     >
       <nav aria-label="Table of contents">
-        <h2 className="text-sm font-semibold text-slate-900 mb-4">On this page</h2>
+        <h2 className="text-sm font-semibold text-slate-900 mb-4">
+          On this page
+        </h2>
         <ul className="space-y-2">
           {sections.map((section) => (
             <li key={section.id}>
@@ -59,7 +61,9 @@ export default function TableOfContents({ sections }: TableOfContentsProps) {
                     ? "text-blue-600 font-medium"
                     : "text-slate-600 hover:text-slate-900"
                 }`}
-                aria-current={activeSection === section.id ? "location" : undefined}
+                aria-current={
+                  activeSection === section.id ? "location" : undefined
+                }
               >
                 {section.title}
               </button>
@@ -69,4 +73,4 @@ export default function TableOfContents({ sections }: TableOfContentsProps) {
       </nav>
     </motion.div>
   );
-} 
+}

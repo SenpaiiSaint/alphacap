@@ -4,12 +4,12 @@ export const mockUser = {
   email: "demo@example.com",
   image: "/avatars/demo.png",
   role: "admin",
-  permissions: ["view", "edit", "admin"]
+  permissions: ["view", "edit", "admin"],
 };
 
 export const mockSession = {
   user: mockUser,
-  expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString()
+  expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
 };
 
 export const useMockAuth = () => {
@@ -17,6 +17,6 @@ export const useMockAuth = () => {
     data: mockSession,
     status: "authenticated",
     error: null,
-    loading: false
+    loading: false,
   };
-}; 
+};

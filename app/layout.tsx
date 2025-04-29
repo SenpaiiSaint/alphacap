@@ -9,7 +9,13 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "AlphaCap",
   description: "AI-powered private equity operations platform",
-  keywords: ["private equity", "portfolio management", "spend analytics", "risk management", "compliance"],
+  keywords: [
+    "private equity",
+    "portfolio management",
+    "spend analytics",
+    "risk management",
+    "compliance",
+  ],
 };
 
 export const viewport: Viewport = {

@@ -8,40 +8,43 @@ import Link from "next/link";
 const features = [
   {
     title: "Portfolio Intelligence",
-    description: "AI-driven spend analytics with real-time portfolio visibility and predictive insights.",
+    description:
+      "AI-driven spend analytics with real-time portfolio visibility and predictive insights.",
     icon: "📊",
     metrics: [
       "98% accuracy in spend forecasting",
       "Real-time fund performance tracking",
       "Automated compliance monitoring",
-      "Cross-fund benchmarking"
+      "Cross-fund benchmarking",
     ],
-    impact: "Reduced operational costs by $2.5M annually"
+    impact: "Reduced operational costs by $2.5M annually",
   },
   {
     title: "Risk & Compliance",
-    description: "Enterprise-grade security with automated controls and real-time monitoring.",
+    description:
+      "Enterprise-grade security with automated controls and real-time monitoring.",
     icon: "🛡️",
     metrics: [
       "99.99% system uptime",
       "Sub-second transaction processing",
       "Automated fraud detection",
-      "Real-time compliance alerts"
+      "Real-time compliance alerts",
     ],
-    impact: "99.9% compliance rate across all funds"
+    impact: "99.9% compliance rate across all funds",
   },
   {
     title: "Smart Spend Management",
-    description: "End-to-end automation with intelligent workflows and process optimization.",
+    description:
+      "End-to-end automation with intelligent workflows and process optimization.",
     icon: "⚡",
     metrics: [
       "60% reduction in manual processes",
       "40% faster transaction processing",
       "95% automated reconciliation",
-      "24/7 system availability"
+      "24/7 system availability",
     ],
-    impact: "15% improvement in operational efficiency"
-  }
+    impact: "15% improvement in operational efficiency",
+  },
 ];
 
 export default function ProductPage() {
@@ -54,7 +57,9 @@ export default function ProductPage() {
             <div className="flex">
               <div className="flex-shrink-0 flex items-center">
                 <Link href="/" className="flex items-center space-x-2">
-                  <span className="text-xl font-bold text-slate-900">AlphaCap</span>
+                  <span className="text-xl font-bold text-slate-900">
+                    AlphaCap
+                  </span>
                 </Link>
               </div>
               <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -106,7 +111,8 @@ export default function ProductPage() {
             Product Features
           </h1>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Comprehensive suite of tools designed to streamline private equity operations and enhance decision-making.
+            Comprehensive suite of tools designed to streamline private equity
+            operations and enhance decision-making.
           </p>
         </motion.div>
 
@@ -128,13 +134,18 @@ export default function ProductPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-slate-600 mb-6">{feature.description}</p>
-                  
+
                   <div className="space-y-6">
                     <div>
-                      <h3 className="font-semibold text-slate-900 mb-3">Key Metrics</h3>
+                      <h3 className="font-semibold text-slate-900 mb-3">
+                        Key Metrics
+                      </h3>
                       <ul className="space-y-2">
                         {feature.metrics.map((metric) => (
-                          <li key={metric} className="flex items-center text-slate-600">
+                          <li
+                            key={metric}
+                            className="flex items-center text-slate-600"
+                          >
                             <span className="mr-2">•</span>
                             {metric}
                           </li>
@@ -143,7 +154,9 @@ export default function ProductPage() {
                     </div>
 
                     <div>
-                      <h3 className="font-semibold text-slate-900 mb-3">Impact</h3>
+                      <h3 className="font-semibold text-slate-900 mb-3">
+                        Impact
+                      </h3>
                       <p className="text-slate-600">{feature.impact}</p>
                     </div>
                   </div>
@@ -168,11 +181,12 @@ export default function ProductPage() {
             Ready to Get Started?
           </h2>
           <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-            Schedule a demo to see how our product can transform your private equity operations.
+            Schedule a demo to see how our product can transform your private
+            equity operations.
           </p>
           <Button size="lg">Schedule a Demo</Button>
         </motion.div>
       </div>
     </div>
   );
-} 
+}

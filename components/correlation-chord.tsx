@@ -1,7 +1,6 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
 
 export function CorrelationChord() {
   return (
@@ -11,5 +10,5 @@ export function CorrelationChord() {
         <p className="text-sm text-muted-foreground">Coming soon</p>
       </div>
     </div>
-  )
-} 
+  );
+}

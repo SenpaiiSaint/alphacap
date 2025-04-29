@@ -8,12 +8,21 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
-export function Button({ children, variant = "primary", className = "", ...props }: ButtonProps) {
+export function Button({
+  children,
+  variant = "primary",
+  className = "",
+  ...props
+}: ButtonProps) {
   return (
     <button
       className={`
         px-4 py-2 rounded-lg font-medium transition-colors
-        ${variant === "primary" ? "bg-blue-600 hover:bg-blue-700 text-white" : "bg-gray-600 hover:bg-gray-700 text-white"}
+        ${
+          variant === "primary"
+            ? "bg-blue-600 hover:bg-blue-700 text-white"
+            : "bg-gray-600 hover:bg-gray-700 text-white"
+        }
         ${className}
       `}
       {...props}
@@ -21,4 +30,4 @@ export function Button({ children, variant = "primary", className = "", ...props
       {children}
     </button>
   );
-} 
+}

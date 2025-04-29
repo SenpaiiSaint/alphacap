@@ -1,11 +1,7 @@
-"use client"
+"use client";
 
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 
 export default function Providers({ children }: { children: ReactNode }) {
-  return (
-    <>
-      {children}
-    </>
-  )
-} 
+  return <>{children}</>;
+}

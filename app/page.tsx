@@ -564,7 +564,6 @@ export default function Home() {
             title="New Feature Available"
             message="Try our new transaction management system"
             onClose={() => setShowNotification(false)}
-            autoClose={5000}
           />
         )}
       </AnimatePresence>

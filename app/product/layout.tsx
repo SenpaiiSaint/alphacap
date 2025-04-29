@@ -2,8 +2,15 @@ import { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
   title: "Product | AlphaCap",
-  description: "Comprehensive suite of tools designed to streamline private equity operations and enhance decision-making.",
-  keywords: ["private equity", "portfolio management", "spend analytics", "risk management", "compliance"],
+  description:
+    "Comprehensive suite of tools designed to streamline private equity operations and enhance decision-making.",
+  keywords: [
+    "private equity",
+    "portfolio management",
+    "spend analytics",
+    "risk management",
+    "compliance",
+  ],
 };
 
 export const viewport: Viewport = {
@@ -19,4 +26,4 @@ export default function ProductLayout({
   children: React.ReactNode;
 }) {
   return <>{children}</>;
-} 
+}

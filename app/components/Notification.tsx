@@ -8,10 +8,14 @@ interface NotificationProps {
   title: string;
   message: string | ReactNode;
   onClose?: () => void;
-  autoClose?: number;
 }
 
-export function Notification({ type, title, message, onClose, autoClose = 5000 }: NotificationProps) {
+export function Notification({
+  type,
+  title,
+  message,
+  onClose,
+}: NotificationProps) {
   return (
     <AnimatePresence>
       <motion.div
@@ -19,10 +23,13 @@ export function Notification({ type, title, message, onClose, autoClose = 5000 }
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
         className={`fixed bottom-4 right-4 p-4 rounded-lg shadow-lg ${
-          type === "info" ? "bg-blue-100 text-blue-800" :
-          type === "success" ? "bg-green-100 text-green-800" :
-          type === "error" ? "bg-red-100 text-red-800" :
-          "bg-yellow-100 text-yellow-800"
+          type === "info"
+            ? "bg-blue-100 text-blue-800"
+            : type === "success"
+            ? "bg-green-100 text-green-800"
+            : type === "error"
+            ? "bg-red-100 text-red-800"
+            : "bg-yellow-100 text-yellow-800"
         }`}
       >
         <div className="flex items-start">
@@ -31,7 +38,10 @@ export function Notification({ type, title, message, onClose, autoClose = 5000 }
             <p className="text-sm mt-1">{message}</p>
           </div>
           {onClose && (
-            <button onClick={onClose} className="ml-4 text-current hover:opacity-75">
+            <button
+              onClick={onClose}
+              className="ml-4 text-current hover:opacity-75"
+            >
               ×
             </button>
           )}
@@ -39,4 +49,4 @@ export function Notification({ type, title, message, onClose, autoClose = 5000 }
       </motion.div>
     </AnimatePresence>
   );
-} 
+}

@@ -17,4 +17,4 @@ export function Card({ children, className = "" }: CardProps) {
       {children}
     </motion.div>
   );
-} 
+}

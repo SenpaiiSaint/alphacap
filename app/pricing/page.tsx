@@ -20,7 +20,8 @@ export default function PricingPage() {
               Simple, Transparent Pricing
             </h1>
             <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Choose the plan that's right for your firm. All plans include core features and enterprise-grade security.
+              Choose the plan that&apos;s right for your firm. All plans include core
+              features and enterprise-grade security.
             </p>
           </motion.div>
         </div>
@@ -42,10 +43,10 @@ export default function PricingPage() {
                   "Basic compliance",
                   "Standard reporting",
                   "Email support",
-                  "Core integrations"
+                  "Core integrations",
                 ],
                 cta: "Get Started",
-                popular: false
+                popular: false,
               },
               {
                 name: "Professional",
@@ -58,10 +59,10 @@ export default function PricingPage() {
                   "Advanced analytics",
                   "Custom workflows",
                   "Priority support",
-                  "API access"
+                  "API access",
                 ],
                 cta: "Start Free Trial",
-                popular: true
+                popular: true,
               },
               {
                 name: "Enterprise",
@@ -74,11 +75,11 @@ export default function PricingPage() {
                   "Custom integrations",
                   "Dedicated support",
                   "Advanced security",
-                  "Strategic consulting"
+                  "Strategic consulting",
                 ],
                 cta: "Contact Sales",
-                popular: false
-              }
+                popular: false,
+              },
             ].map((tier, index) => (
               <motion.div
                 key={tier.name}
@@ -97,22 +98,31 @@ export default function PricingPage() {
                     </span>
                   </div>
                 )}
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">{tier.name}</h3>
+                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                  {tier.name}
+                </h3>
                 <div className="mb-4">
-                  <span className="text-3xl font-bold text-slate-900">{tier.price}</span>
+                  <span className="text-3xl font-bold text-slate-900">
+                    {tier.price}
+                  </span>
                   <span className="text-slate-600">/{tier.period}</span>
                 </div>
                 <p className="text-slate-600 mb-6">{tier.description}</p>
                 <ul className="space-y-3 mb-8">
                   {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-center text-sm text-slate-600">
+                    <li
+                      key={feature}
+                      className="flex items-center text-sm text-slate-600"
+                    >
                       <span className="text-blue-500 mr-2">•</span>
                       {feature}
                     </li>
                   ))}
                 </ul>
                 <Link
-                  href={tier.cta === "Contact Sales" ? "/contact" : "/auth/sign-up"}
+                  href={
+                    tier.cta === "Contact Sales" ? "/contact" : "/auth/sign-up"
+                  }
                   className={`block w-full text-center px-4 py-2 rounded-lg font-semibold transition-all duration-300 ${
                     tier.popular
                       ? "bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-500 hover:to-blue-700"
@@ -141,7 +151,8 @@ export default function PricingPage() {
               Feature Comparison
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Compare features across all plans to find the perfect fit for your firm.
+              Compare features across all plans to find the perfect fit for your
+              firm.
             </p>
           </motion.div>
 
@@ -149,28 +160,84 @@ export default function PricingPage() {
             <table className="w-full bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-200/50">
               <thead>
                 <tr className="border-b border-slate-200">
-                  <th className="px-6 py-3 text-left text-sm font-medium text-slate-600">Feature</th>
-                  <th className="px-6 py-3 text-center text-sm font-medium text-slate-600">Starter</th>
-                  <th className="px-6 py-3 text-center text-sm font-medium text-slate-600">Professional</th>
-                  <th className="px-6 py-3 text-center text-sm font-medium text-slate-600">Enterprise</th>
+                  <th className="px-6 py-3 text-left text-sm font-medium text-slate-600">
+                    Feature
+                  </th>
+                  <th className="px-6 py-3 text-center text-sm font-medium text-slate-600">
+                    Starter
+                  </th>
+                  <th className="px-6 py-3 text-center text-sm font-medium text-slate-600">
+                    Professional
+                  </th>
+                  <th className="px-6 py-3 text-center text-sm font-medium text-slate-600">
+                    Enterprise
+                  </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
                 {[
-                  { feature: "AUM Limit", starter: "$500M", professional: "$5B", enterprise: "Unlimited" },
-                  { feature: "Number of Funds", starter: "1-3", professional: "3-10", enterprise: "Unlimited" },
-                  { feature: "Compliance Monitoring", starter: "Basic", professional: "Advanced", enterprise: "Custom" },
-                  { feature: "Analytics", starter: "Standard", professional: "Advanced", enterprise: "Custom" },
-                  { feature: "Support", starter: "Email", professional: "Priority", enterprise: "Dedicated" },
-                  { feature: "API Access", starter: "No", professional: "Yes", enterprise: "Custom" },
-                  { feature: "Custom Integrations", starter: "No", professional: "Limited", enterprise: "Yes" },
-                  { feature: "Security", starter: "Standard", professional: "Advanced", enterprise: "Custom" }
+                  {
+                    feature: "AUM Limit",
+                    starter: "$500M",
+                    professional: "$5B",
+                    enterprise: "Unlimited",
+                  },
+                  {
+                    feature: "Number of Funds",
+                    starter: "1-3",
+                    professional: "3-10",
+                    enterprise: "Unlimited",
+                  },
+                  {
+                    feature: "Compliance Monitoring",
+                    starter: "Basic",
+                    professional: "Advanced",
+                    enterprise: "Custom",
+                  },
+                  {
+                    feature: "Analytics",
+                    starter: "Standard",
+                    professional: "Advanced",
+                    enterprise: "Custom",
+                  },
+                  {
+                    feature: "Support",
+                    starter: "Email",
+                    professional: "Priority",
+                    enterprise: "Dedicated",
+                  },
+                  {
+                    feature: "API Access",
+                    starter: "No",
+                    professional: "Yes",
+                    enterprise: "Custom",
+                  },
+                  {
+                    feature: "Custom Integrations",
+                    starter: "No",
+                    professional: "Limited",
+                    enterprise: "Yes",
+                  },
+                  {
+                    feature: "Security",
+                    starter: "Standard",
+                    professional: "Advanced",
+                    enterprise: "Custom",
+                  },
                 ].map((row) => (
                   <tr key={row.feature} className="hover:bg-slate-50/50">
-                    <td className="px-6 py-4 text-sm font-medium text-slate-900">{row.feature}</td>
-                    <td className="px-6 py-4 text-sm text-center text-slate-600">{row.starter}</td>
-                    <td className="px-6 py-4 text-sm text-center text-slate-600">{row.professional}</td>
-                    <td className="px-6 py-4 text-sm text-center text-slate-600">{row.enterprise}</td>
+                    <td className="px-6 py-4 text-sm font-medium text-slate-900">
+                      {row.feature}
+                    </td>
+                    <td className="px-6 py-4 text-sm text-center text-slate-600">
+                      {row.starter}
+                    </td>
+                    <td className="px-6 py-4 text-sm text-center text-slate-600">
+                      {row.professional}
+                    </td>
+                    <td className="px-6 py-4 text-sm text-center text-slate-600">
+                      {row.enterprise}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -200,21 +267,25 @@ export default function PricingPage() {
           <div className="grid gap-8 md:grid-cols-2">
             {[
               {
-                question: "What's included in each plan?",
-                answer: "All plans include core features like fund-level spend management, basic compliance monitoring, and standard reporting. Higher tiers add advanced analytics, custom workflows, and dedicated support."
+                question: "What&apos;s included in each plan?",
+                answer:
+                  "All plans include core features like fund-level spend management, basic compliance monitoring, and standard reporting. Higher tiers add advanced analytics, custom workflows, and dedicated support.",
               },
               {
                 question: "Can I upgrade or downgrade my plan?",
-                answer: "Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle."
+                answer:
+                  "Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.",
               },
               {
                 question: "Do you offer custom pricing?",
-                answer: "Yes, our Enterprise plan offers custom pricing based on your specific needs, including unlimited AUM, custom integrations, and dedicated support."
+                answer:
+                  "Yes, our Enterprise plan offers custom pricing based on your specific needs, including unlimited AUM, custom integrations, and dedicated support.",
               },
               {
                 question: "Is there a free trial?",
-                answer: "Yes, we offer a 14-day free trial for our Professional plan. No credit card required."
-              }
+                answer:
+                  "Yes, we offer a 14-day free trial for our Professional plan. No credit card required.",
+              },
             ].map((faq, index) => (
               <motion.div
                 key={faq.question}
@@ -224,7 +295,9 @@ export default function PricingPage() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-200/50 p-6"
               >
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">{faq.question}</h3>
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                  {faq.question}
+                </h3>
                 <p className="text-slate-600">{faq.answer}</p>
               </motion.div>
             ))}
@@ -246,7 +319,8 @@ export default function PricingPage() {
               Ready to get started?
             </h2>
             <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-              Choose the plan that's right for your firm and start transforming your operations today.
+              Choose the plan that&apos;s right for your firm and start transforming
+              your operations today.
             </p>
             <Link
               href="/auth/sign-up"
@@ -259,4 +333,4 @@ export default function PricingPage() {
       </section>
     </div>
   );
-} 
+}

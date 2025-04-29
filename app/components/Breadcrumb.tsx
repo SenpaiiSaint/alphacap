@@ -15,10 +15,7 @@ interface BreadcrumbProps {
 
 export default function Breadcrumb({ items }: BreadcrumbProps) {
   return (
-    <nav 
-      className="flex py-4 px-4 sm:px-6 lg:px-8" 
-      aria-label="Breadcrumb"
-    >
+    <nav className="flex py-4 px-4 sm:px-6 lg:px-8" aria-label="Breadcrumb">
       <ol className="flex items-center space-x-2">
         {items.map((item, index) => (
           <motion.li
@@ -58,4 +55,4 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
       </ol>
     </nav>
   );
-} 
+}

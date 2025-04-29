@@ -1,37 +1,45 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { MessageSquare, Share2, Download } from "lucide-react"
+import * as React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import { MessageSquare, Share2, Download } from "lucide-react";
 
 const mockComments = [
   {
     id: 1,
     user: { name: "John Doe", avatar: "/avatars/john.png" },
-    message: "The Q2 performance exceeded expectations, particularly in the tech sector.",
+    message:
+      "The Q2 performance exceeded expectations, particularly in the tech sector.",
     timestamp: "2 hours ago",
   },
   {
     id: 2,
     user: { name: "Jane Smith", avatar: "/avatars/jane.png" },
-    message: "We should consider rebalancing the healthcare allocation based on recent market trends.",
+    message:
+      "We should consider rebalancing the healthcare allocation based on recent market trends.",
     timestamp: "4 hours ago",
   },
   {
     id: 3,
     user: { name: "Mike Johnson", avatar: "/avatars/mike.png" },
-    message: "The risk metrics look promising, but let's keep an eye on volatility.",
+    message:
+      "The risk metrics look promising, but let's keep an eye on volatility.",
     timestamp: "1 day ago",
   },
-]
+];
 
 const mockReports = [
-  { name: "Q2 Performance Report", date: "2024-06-30", type: "PDF", size: "2.4 MB" },
+  {
+    name: "Q2 Performance Report",
+    date: "2024-06-30",
+    type: "PDF",
+    size: "2.4 MB",
+  },
   { name: "Risk Assessment", date: "2024-06-15", type: "PDF", size: "1.8 MB" },
   { name: "Sector Analysis", date: "2024-06-01", type: "PDF", size: "3.2 MB" },
-]
+];
 
 export function Collaboration() {
   return (
@@ -56,9 +64,13 @@ export function Collaboration() {
                 <div className="flex-1">
                   <div className="flex items-center justify-between">
                     <span className="font-medium">{comment.user.name}</span>
-                    <span className="text-xs text-muted-foreground">{comment.timestamp}</span>
+                    <span className="text-xs text-muted-foreground">
+                      {comment.timestamp}
+                    </span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-1">{comment.message}</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {comment.message}
+                  </p>
                 </div>
               </div>
             ))}
@@ -83,7 +95,10 @@ export function Collaboration() {
         <CardContent>
           <div className="space-y-4">
             {mockReports.map((report) => (
-              <div key={report.name} className="flex items-center justify-between p-2 hover:bg-slate-50 rounded-lg">
+              <div
+                key={report.name}
+                className="flex items-center justify-between p-2 hover:bg-slate-50 rounded-lg"
+              >
                 <div>
                   <p className="font-medium">{report.name}</p>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -103,5 +118,5 @@ export function Collaboration() {
         </CardContent>
       </Card>
     </div>
-  )
-} 
+  );
+}

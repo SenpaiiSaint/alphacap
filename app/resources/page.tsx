@@ -10,7 +10,7 @@ export default function ResourcesPage() {
   const sections = [
     { id: "documentation", title: "Documentation" },
     { id: "learning-center", title: "Learning Center" },
-    { id: "support", title: "Support" }
+    { id: "support", title: "Support" },
   ];
 
   return (
@@ -19,7 +19,7 @@ export default function ResourcesPage() {
       <Breadcrumb
         items={[
           { label: "Home", href: "/" },
-          { label: "Resources", href: "/resources", current: true }
+          { label: "Resources", href: "/resources", current: true },
         ]}
       />
 
@@ -42,7 +42,8 @@ export default function ResourcesPage() {
                   Resources & Support
                 </h1>
                 <p className="text-lg sm:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-                  Everything you need to get started, learn best practices, and maximize your platform experience.
+                  Everything you need to get started, learn best practices, and
+                  maximize your platform experience.
                 </p>
               </motion.div>
             </div>
@@ -62,7 +63,8 @@ export default function ResourcesPage() {
                   Documentation
                 </h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                  Comprehensive guides and technical documentation for all platform features.
+                  Comprehensive guides and technical documentation for all
+                  platform features.
                 </p>
               </motion.div>
 
@@ -75,8 +77,8 @@ export default function ResourcesPage() {
                       { text: "Platform Overview", href: "#" },
                       { text: "First Steps Guide", href: "#" },
                       { text: "Account Setup", href: "#" },
-                      { text: "User Roles", href: "#" }
-                    ]
+                      { text: "User Roles", href: "#" },
+                    ],
                   },
                   {
                     title: "Core Features",
@@ -85,8 +87,8 @@ export default function ResourcesPage() {
                       { text: "Spend Management", href: "#" },
                       { text: "Compliance Tools", href: "#" },
                       { text: "Analytics Dashboard", href: "#" },
-                      { text: "Reporting Tools", href: "#" }
-                    ]
+                      { text: "Reporting Tools", href: "#" },
+                    ],
                   },
                   {
                     title: "Technical Guides",
@@ -95,9 +97,9 @@ export default function ResourcesPage() {
                       { text: "API Reference", href: "#" },
                       { text: "Integration Guide", href: "#" },
                       { text: "Security Best Practices", href: "#" },
-                      { text: "Data Migration", href: "#" }
-                    ]
-                  }
+                      { text: "Data Migration", href: "#" },
+                    ],
+                  },
                 ].map((category, index) => (
                   <motion.div
                     key={category.title}
@@ -107,8 +109,12 @@ export default function ResourcesPage() {
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                     className="bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-200/50 p-6"
                   >
-                    <h3 className="text-xl font-semibold text-slate-900 mb-2">{category.title}</h3>
-                    <p className="text-slate-600 mb-6">{category.description}</p>
+                    <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                      {category.title}
+                    </h3>
+                    <p className="text-slate-600 mb-6">
+                      {category.description}
+                    </p>
                     <ul className="space-y-3">
                       {category.links.map((link) => (
                         <li key={link.text}>
@@ -129,7 +135,10 @@ export default function ResourcesPage() {
           </section>
 
           {/* Learning Center */}
-          <section id="learning-center" className="relative py-20 bg-gradient-to-br from-blue-50 to-slate-50">
+          <section
+            id="learning-center"
+            className="relative py-20 bg-gradient-to-br from-blue-50 to-slate-50"
+          >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -142,7 +151,8 @@ export default function ResourcesPage() {
                   Learning Center
                 </h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                  Video tutorials, webinars, and best practices for maximizing your platform usage.
+                  Video tutorials, webinars, and best practices for maximizing
+                  your platform usage.
                 </p>
               </motion.div>
 
@@ -150,24 +160,26 @@ export default function ResourcesPage() {
                 {[
                   {
                     title: "Video Tutorials",
-                    description: "Step-by-step video guides for common tasks and features",
+                    description:
+                      "Step-by-step video guides for common tasks and features",
                     items: [
                       "Getting Started with Spend Management",
                       "Setting Up Compliance Rules",
                       "Creating Custom Reports",
-                      "Using the Analytics Dashboard"
-                    ]
+                      "Using the Analytics Dashboard",
+                    ],
                   },
                   {
                     title: "Webinars",
-                    description: "Live and recorded sessions on advanced topics",
+                    description:
+                      "Live and recorded sessions on advanced topics",
                     items: [
                       "Advanced Analytics Techniques",
                       "Compliance Best Practices",
                       "Integration Strategies",
-                      "Security & Risk Management"
-                    ]
-                  }
+                      "Security & Risk Management",
+                    ],
+                  },
                 ].map((section, index) => (
                   <motion.div
                     key={section.title}
@@ -177,11 +189,16 @@ export default function ResourcesPage() {
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                     className="bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-200/50 p-6"
                   >
-                    <h3 className="text-xl font-semibold text-slate-900 mb-2">{section.title}</h3>
+                    <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                      {section.title}
+                    </h3>
                     <p className="text-slate-600 mb-6">{section.description}</p>
                     <ul className="space-y-3">
                       {section.items.map((item) => (
-                        <li key={item} className="flex items-center text-sm text-slate-600">
+                        <li
+                          key={item}
+                          className="flex items-center text-sm text-slate-600"
+                        >
                           <span className="text-blue-500 mr-2">•</span>
                           {item}
                         </li>
@@ -207,7 +224,8 @@ export default function ResourcesPage() {
                   Support
                 </h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                  Get help when you need it through our comprehensive support channels.
+                  Get help when you need it through our comprehensive support
+                  channels.
                 </p>
               </motion.div>
 
@@ -215,22 +233,24 @@ export default function ResourcesPage() {
                 {[
                   {
                     title: "Help Center",
-                    description: "Search our knowledge base for answers to common questions",
+                    description:
+                      "Search our knowledge base for answers to common questions",
                     icon: "🔍",
-                    link: "#"
+                    link: "#",
                   },
                   {
                     title: "Contact Support",
-                    description: "Get in touch with our support team for assistance",
+                    description:
+                      "Get in touch with our support team for assistance",
                     icon: "💬",
-                    link: "#"
+                    link: "#",
                   },
                   {
                     title: "Status Page",
                     description: "Check platform status and incident reports",
                     icon: "📊",
-                    link: "#"
-                  }
+                    link: "#",
+                  },
                 ].map((item, index) => (
                   <motion.div
                     key={item.title}
@@ -241,7 +261,9 @@ export default function ResourcesPage() {
                     className="bg-white/80 backdrop-blur-sm rounded-xl shadow-sm border border-slate-200/50 p-6 text-center"
                   >
                     <div className="text-4xl mb-4">{item.icon}</div>
-                    <h3 className="text-xl font-semibold text-slate-900 mb-2">{item.title}</h3>
+                    <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                      {item.title}
+                    </h3>
                     <p className="text-slate-600 mb-6">{item.description}</p>
                     <Link
                       href={item.link}
@@ -269,7 +291,8 @@ export default function ResourcesPage() {
                   Need Additional Help?
                 </h2>
                 <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-                  Our team is here to help you succeed. Contact us for personalized assistance.
+                  Our team is here to help you succeed. Contact us for
+                  personalized assistance.
                 </p>
                 <Link
                   href="/contact"
@@ -287,4 +310,4 @@ export default function ResourcesPage() {
       <BackToTop />
     </div>
   );
-} 
+}

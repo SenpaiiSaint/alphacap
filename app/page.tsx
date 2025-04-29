@@ -166,7 +166,7 @@ export default function Home() {
             className="mt-10 flex justify-center gap-6"
           >
             <Link
-              href="/demodashboard"
+              href="/demo"
               className="group relative px-6 py-3 font-medium text-white transition-all duration-300 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg hover:from-blue-500 hover:to-blue-700 hover:shadow-lg hover:shadow-blue-500/30"
             >
               <span className="relative z-10">View Demo</span>

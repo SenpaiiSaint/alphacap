@@ -1,18 +1,22 @@
-import "./globals.css";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import Providers from "./providers";
+import "./globals.css";
 import { ReactNode } from "react";
+import Providers from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
-  title: "Actua",
-  description: "Spending Tool for Private Equity Firms",
-  icons: {
-    icon: "/file.ico",
-  },
-  themeColor: "#2563eb",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+export const metadata: Metadata = {
+  title: "AlphaCap",
+  description: "AI-powered private equity operations platform",
+  keywords: ["private equity", "portfolio management", "spend analytics", "risk management", "compliance"],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
